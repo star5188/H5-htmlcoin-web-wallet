@@ -3,14 +3,18 @@
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
 import Vuetify from 'vuetify'
-import App from 'App'
+import { Upload } from 'element-ui'
+import App from './App.vue'
 
 import 'vuetify/dist/vuetify.min.css'
-import 'assets/css/material-icons.css'
-import 'assets/css/main.css'
+import './assets/less/htmlcoin-icons.less'
+import './assets/css/material-icons.css'
+import './assets/css/main.css'
 
 Vue.use(Vuetify)
 Vue.use(VueClipboard)
+Vue.component('uploader', Upload)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

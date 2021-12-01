@@ -6,7 +6,7 @@
 'npm run build'
 'cp -r dist/* /var/www/html'
 
-Features: 
+Features:
 - Generate New Wallet
     - Enter new password and download wallet
 - Create From Mnemonic
@@ -25,7 +25,7 @@ Features:
     - Address
     - Balance
     - Unconfirmed Balance
-    - Private Key 
+    - Private Key
 - Safe Send
     - Generate Base Info (At online computer)
     - Generate Tx (At offline computer)
