@@ -348,7 +348,7 @@ export default {
         return false
       }
     },
-
+    
     confirmAddress() {
       if (this.toAddress !== this.repeatToAddress) {
         this.$root.error('address_is_not_same_as_the_old_one')
@@ -357,7 +357,7 @@ export default {
       this.confirmAddressDialog = false
       this.confirmSendDialog = true
     },
-    
+
     async confirmSend() {
       if (this.step === 1) {
         await this.createInfoFile()
@@ -385,45 +385,8 @@ export default {
           )
           this.confirmSendDialog = false
         }
-      },
-      confirmAddress() {
-        if (this.toAddress !== this.repeatToAddress) {
-          this.$root.error('address_is_not_same_as_the_old_one')
-          return false
-        }
-        this.confirmAddressDialog = false
-        this.confirmSendDialog = true
-      },
-      
-      async confirmSend() {
-        if (this.step === 1) {
-          await this.createInfoFile()
-        } else if (this.step === 2) {
-          await this.createTxFile()
-        } else if (this.step === 3) {
-          try {
-            const res = await wallet.sendRawTx(this.rawTx)
-            this.confirmSendDialog = false
-            if (res.txId) {
-              const txViewUrl = server.currentNode().getTxExplorerUrl(res.txId)
-              this.$root.success(
-                `Successful send. You can view at <a href="${txViewUrl}" target="_blank">${txViewUrl}</a>`,
-                true,
-                0
-              )
-            } else {
-              this.$root.error(`Send Failed : ${res.message}`, true, 0)
-            }
-          } catch (e) {
-            alert(e.message || e)
-            this.$root.log.error(
-              'safe_send_post_raw_tx_error',
-              e.response || e.stack || e.toString() || e
-            )
-            this.confirmSendDialog = false
-          }
-        }
       }
     }
   }
+}
 </script>
