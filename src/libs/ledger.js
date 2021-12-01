@@ -3,7 +3,7 @@ import btcApp from '@ledgerhq/hw-app-btc'
 import transportU2f from '@ledgerhq/hw-transport-u2f'
 import BigNumber from 'bignumber.js'
 import SafeBuffer from 'safe-buffer'
-import OPS from 'qtum-opcodes'
+import OPS from 'htmlcoin-opcodes'
 
 const Buffer = SafeBuffer.Buffer
 

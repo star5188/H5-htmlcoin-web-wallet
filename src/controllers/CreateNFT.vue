@@ -10,7 +10,7 @@
           :before-upload="beforeAvatarUpload"
           :on-success="handleFileComplete"
           :show-file-list="false"
-          action="https://api.qtumwallet.org/picture/upload"
+          action="https://wallet.htmlcoin.com/picture/upload"
         >
           <div class="nft-img__upload" :single="false" :attrs="attrs">
             <div v-if="!isUpload">
@@ -42,7 +42,7 @@
           required
         ></v-text-field>
         <v-text-field
-          label="Gas Price (1e-8 QTUM/gas)"
+          label="Gas Price (1e-8 HTML/gas)"
           v-model.trim="gasPrice"
           :rules="[rules.required]"
         ></v-text-field>
@@ -214,4 +214,3 @@ export default {
   }
 }
 </style>
-

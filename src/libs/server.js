@@ -6,7 +6,7 @@ let nodeConfigs = {
     htmlcoinInfo
 }
 
-const defaultNodeId = 'qtumInfo'
+const defaultNodeId = 'htmlcoinInfo'
 let currentNodeId = defaultNodeId
 
 export default {

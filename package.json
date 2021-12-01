@@ -23,7 +23,7 @@
         "localstorage-logger": "^0.1.1",
         "npm": "^7.15.1",
         "qrcode": "^0.9.0",
-        "qtum-opcodes": "^1.0.0",
+        "htmlcoin-opcodes": "^1.0.0",
         "htmlcoinjs-lib": "^0.1.15",
         "secp256k1": "^3.8.0",
         "store": "^2.0.12",

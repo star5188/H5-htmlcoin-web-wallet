@@ -209,7 +209,7 @@ export const nftAbi = [{
                     'type': 'uint32'
                 }
             ],
-            'internalType': 'struct QtumNFT.WalletNFTInfo[]',
+            'internalType': 'struct HtmlcoinNFT.WalletNFTInfo[]',
             'name': '',
             'type': 'tuple[]'
         }],

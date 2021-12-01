@@ -1,65 +1,82 @@
 import axios from 'axios'
-import config from 'libs/config'
-// todo change apis to htmlcoin.info
+import config from '@/libs/config'
+// todo change apis to info explorer
+
 let domain = ''
-let insightDomain = ''
+
 switch (config.getNetwork()) {
-  case 'testnet':
-    domain = 'https://info-testnet.htmlcoin.com'
-    insightDomain = 'https://testnet-api.htmlcoin.com/'
-    break
-  case 'mainnet':
-    domain = 'https://info.htmlcoin.com'
-    insightDomain = 'https://explorer.htmlcoin.com'
-    break
+    case 'testnet':
+        domain = 'https://testnetinfo.htmlcoin.com'
+        break
+    case 'mainnet':
+        domain = 'https://info.htmlcoin.com'
+        break
 }
-const apiPrefix = insightDomain + ''
+const apiPrefix = domain + '/api'
+
 const _get = async url => {
-  return (await axios.get(apiPrefix + url)).data
+    return (await axios.get(apiPrefix + url)).data
 }
-const _post = async (url, data) => {
-  return (await axios.post(apiPrefix + url, data)).data
+
+const _post = async(url, data) => {
+    return (await axios.post(apiPrefix + url, data)).data
 }
+
 export default {
-  async getInfo(address) {
-    return await _get(`/addr/${address}`)
-  },
-  async getHrc20(address) {
-    return await _get(`/erc20/balances?balanceAddress=${address}`)
-  },
-  async getTokenInfo(contractAddress) {
-    return await _get(`/hrc20/${contractAddress}`)
-  },
-  async getTxList(address) {
-    return await _get(`/txs/?address=${address}`)
-  },
-  async getUtxoList(address) {
-    return (await _get(`/addr/${address}/utxo`)).map(item => {
-      return {
-        address: item.address,
-        txid: item.txid,
-        confirmations: item.confirmations,
-        isStake: item.isStake,
-        amount: item.amount,
-        value: item.satoshis,
-        hash: item.txid,
-        pos: item.vout
-      }
-    })
-  },
-  async sendRawTx(rawTx) {
-    return (await (_post('/tx/send', { rawtx: rawTx }))).txid
-  },
-  async fetchRawTx(txid) {
-    return (await _get(`/rawtx/${txid}`)).rawtx
-  },
-  getTxExplorerUrl(tx) {
-    return `${domain}/tx/${tx}`
-  },
-  getAddrExplorerUrl(addr) {
-    return `${domain}/address/${addr}`
-  },
-  async callContract(address, encodedData) {
-    return (await _get(`/contracts/${address}/hash/${encodedData}/call`))['executionResult']['output']
-  }
+    async getInfo(address) {
+        return await _get(`/address/${address}`)
+    },
+
+    async getTokenInfo(contractAddress) {
+        return await _get(`/hrc20/${contractAddress}`)
+    },
+
+    async getTxList(address, size = 10) {
+        const res = await _get(`/address/${address}/txs?page=0&pageSize=${size}`)
+        return Promise.all(res.transactions.map(tx => _get(`/tx/${tx}`)))
+    },
+
+    async getUtxoList(address) {
+        return (await _get(`/address/${address}/utxo`)).map(item => {
+            return {
+                address: item.address,
+                txid: item.transactionId,
+                confirmations: item.confirmations,
+                isStake: item.isStake,
+                amount: item.value,
+                value: item.value,
+                hash: item.transactionId,
+                pos: item.outputIndex
+            }
+        })
+    },
+
+    async sendRawTx(rawTx) {
+        const res = await _post('/tx/send', `rawtx=${rawTx}`)
+        return {
+            txId: res.txid,
+            message: res.message
+        }
+    },
+
+    async fetchRawTx(txid) {
+        return await _get(`/raw-tx/${txid}`)
+    },
+
+    getTxExplorerUrl(tx) {
+        return `${domain}/tx/${tx}`
+    },
+
+    getAddrExplorerUrl(addr) {
+        return `${domain}/address/${addr}`
+    },
+
+    async callContract(address, encodedData) {
+        return (await _get(`/contract/${address}/call/?data=${encodedData}`))
+            .executionResult.output
+    },
+
+    async getHtmlcoinInfo() {
+        return await _get('/info')
+    }
 }
