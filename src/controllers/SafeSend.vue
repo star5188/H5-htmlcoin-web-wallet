@@ -357,49 +357,7 @@ export default {
       this.confirmAddressDialog = false
       this.confirmSendDialog = true
     },
-    components: {
-      FileReader,
-    },
-    methods: {
-      async createInfoFile() {
-        this.step = 2
-        this.confirmSendDialog = false
-        const utxoList = await server.currentNode().getUtxoList(this.fromAddress)
-        const saveInfo = JSON.stringify({
-          from: this.fromAddress,
-          to: this.toAddress,
-          amount: this.amount,
-          fee: this.fee,
-          utxo: utxoList,
-        })
-        const blob = new Blob([saveInfo], {
-          type: 'text/plain;charset=utf-8',
-        })
-        fileSaver.saveAs(
-          blob,
-          this.fromAddress + '_' + new Date().getTime() + '.raw',
-        )
-      },
-      async createTxFile() {
-        this.step = 3
-        this.confirmSendDialog = false
-        const offLineWallet = webWallet.getWallet()
-        const rawTx = await wallet.generateTx(offLineWallet, this.toAddress, this.amount, this.fee, this.utxo)
-        const saveInfo = JSON.stringify({
-          from: this.fromAddress,
-          to: this.toAddress,
-          amount: this.amount,
-          fee: this.fee,
-          rawTx,
-        })
-        fileSaver.saveAs(
-          new Blob([saveInfo], {
-            type: 'text/plain;charset=utf-8',
-          }),
-          this.fromAddress + '_' + new Date().getTime() + '.tx',
-        )
-      },
-
+    
     async confirmSend() {
       if (this.step === 1) {
         await this.createInfoFile()
@@ -436,31 +394,36 @@ export default {
         this.confirmAddressDialog = false
         this.confirmSendDialog = true
       },
+      
       async confirmSend() {
         if (this.step === 1) {
           await this.createInfoFile()
-        }
-        else if (this.step === 2) {
+        } else if (this.step === 2) {
           await this.createTxFile()
-        }
-        else if (this.step === 3) {
+        } else if (this.step === 3) {
           try {
             const res = await wallet.sendRawTx(this.rawTx)
             this.confirmSendDialog = false
             if (res.txId) {
               const txViewUrl = server.currentNode().getTxExplorerUrl(res.txId)
-              this.$root.success(`Successful send. You can view at <a href="${txViewUrl}" target="_blank">${txViewUrl}</a>`, true, 0)
+              this.$root.success(
+                `Successful send. You can view at <a href="${txViewUrl}" target="_blank">${txViewUrl}</a>`,
+                true,
+                0
+              )
             } else {
               this.$root.error(`Send Failed : ${res.message}`, true, 0)
             }
           } catch (e) {
             alert(e.message || e)
-            this.$root.log.error('safe_send_post_raw_tx_error', e.response || e.stack || e.toString() || e)
+            this.$root.log.error(
+              'safe_send_post_raw_tx_error',
+              e.response || e.stack || e.toString() || e
+            )
             this.confirmSendDialog = false
           }
         }
-      },
-    },
+      }
+    }
   }
-
 </script>
