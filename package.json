@@ -39,7 +39,7 @@
         "@vue/cli-service": "~4.5.0",
         "babel-eslint": "^10.1.0",
         "bip32-utils": "^0.10.2",
-        "bitcoinjs-lib": "^3.3.2",
+        "bitcoinjs-lib": "HTMLCOIN/bitcoinjs-lib",
         "create-hash": "^1.2.0",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^6.2.2",
