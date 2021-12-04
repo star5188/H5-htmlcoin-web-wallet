@@ -32,8 +32,8 @@
     </v-navigation-drawer>
     <v-toolbar :class="headerClass" app fixed clipped-left>
       <span class="title">
-        <i class="htmlcoin-icon htmlcoin-icon-logo"></i>
-        <span class="text">Htmlcoin Web Wallet</span>
+        <i class="htmlcoin-icon htmlcoin-icon-logo" style="font-size:34px;"></i>
+        <span class="text" style="font-size:34px;">Htmlcoin Web Wallet</span>
       </span>
     </v-toolbar>
     <main>
@@ -172,7 +172,6 @@ export default {
         { divider: true, name: 'wallet' },
         { icon: 'account_balance_wallet', name: 'view' },
         { icon: 'list', name: 'transactions' },
-        { icon: 'security', name: 'safe_send' },
         { icon: 'repeat', name: 'send' },
         { icon: 'undo', name: 'request_payment' },
         { icon: 'cloud_download', name: 'dump_as_key_file' },
@@ -215,7 +214,7 @@ export default {
       }
     },
     headerClass() {
-      return this.mode === 'normal' ? 'grey darken-4' : 'orange'
+      return this.mode === 'normal' ? 'white' : 'orange'
     }
   },
   watch: {
