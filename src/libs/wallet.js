@@ -220,10 +220,10 @@ export default class Wallet {
       let reg
       switch (config.getNetwork()) {
         case 'testnet':
-            reg = /^q\w{33}/g
+            reg = /^h\w{33}/g
             return reg.test(address)
         case 'mainnet':
-            reg = /^Q\w{33}/g
+            reg = /^H\w{33}/g
             return reg.test(address)
       }
       return false
