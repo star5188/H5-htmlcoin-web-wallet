@@ -99,10 +99,6 @@
               ></send-to-contract>
               <call-contract v-if="isCurrent['call_contract']"></call-contract>
               <create-nft v-if="isCurrent['create_NFT']"></create-nft>
-//              <delegation
-//                :view="isCurrent['delegation']"
-//                v-if="isCurrent['delegation']"
-//              ></delegation>
               <config v-if="isCurrent['settings']"></config>
             </v-flex>
           </v-layout>
@@ -247,7 +243,6 @@ export default {
     SendToContract,
     CallContract,
     Config,
-    Delegation,
     CreateNft
   },
   methods: {
