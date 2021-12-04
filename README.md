@@ -1,4 +1,4 @@
-# Althash Web Wallet
+# Htmlcoin Web Wallet
 
 'nvm use 10'
 'git clone'
@@ -36,4 +36,5 @@ Features:
 - Create Contract
 - Send To Contract
 - Call Contract
+- NFT Platform
 - Settings
