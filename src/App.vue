@@ -14,7 +14,7 @@
             :key="i"
             v-else
             @click="changeView(item.name)"
-            active-class="grey darken-4"
+            active-class="grey darken-3"
             v-model="isCurrent[item.name]"
             v-show="!notShow[item.name]"
           >
@@ -33,13 +33,7 @@
     <v-toolbar :class="headerClass" app fixed clipped-left>
       <span class="title">
         <i class="htmlcoin-icon htmlcoin-icon-logo"></i>
-        <span class="text">HTMLCOIN</span>
-        <span @click="changeView('settings')">
-          --{{ $t("common." + network) }}
-        </span>
-        <v-btn flat @click="changeView('settings')" v-if="mode !== 'normal'">
-          {{ $t("common.mode." + mode) }}
-        </v-btn>
+        <span class="text">Htmlcoin Web Wallet</span>
       </span>
     </v-toolbar>
     <main>
@@ -105,10 +99,10 @@
               ></send-to-contract>
               <call-contract v-if="isCurrent['call_contract']"></call-contract>
               <create-nft v-if="isCurrent['create_NFT']"></create-nft>
-              <delegation
-                :view="isCurrent['delegation']"
-                v-if="isCurrent['delegation']"
-              ></delegation>
+//              <delegation
+//                :view="isCurrent['delegation']"
+//                v-if="isCurrent['delegation']"
+//              ></delegation>
               <config v-if="isCurrent['settings']"></config>
             </v-flex>
           </v-layout>
