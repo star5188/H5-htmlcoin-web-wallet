@@ -99,6 +99,10 @@
               ></send-to-contract>
               <call-contract v-if="isCurrent['call_contract']"></call-contract>
               <create-nft v-if="isCurrent['create_NFT']"></create-nft>
+              <delegation
+                :view="isCurrent['delegation']"
+                v-if="isCurrent['delegation']"
+              ></delegation>
               <config v-if="isCurrent['settings']"></config>
             </v-flex>
           </v-layout>
@@ -165,8 +169,6 @@ export default {
         { icon: 'phonelink_lock', name: 'restore_from_mobile' },
         { icon: 'cloud_upload', name: 'restore_from_key_file' },
         { icon: 'flip_to_front', name: 'restore_from_ledger' },
-        { divider: true, name: 'stake' },
-        { icon: 'gavel', name: 'delegation' },
         { divider: true, name: 'wallet' },
         { icon: 'account_balance_wallet', name: 'view' },
         { icon: 'list', name: 'transactions' },
@@ -243,6 +245,7 @@ export default {
     SendToContract,
     CallContract,
     Config,
+    Delegation,
     CreateNft
   },
   methods: {
