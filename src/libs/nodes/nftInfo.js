@@ -461,8 +461,8 @@ nftAbi.map((nft) => {
 export function getNFTContractAddress() {
     switch (config.getNetwork()) {
         case 'testnet':
-            return '16c98b19e66e931b7ada0d5ca41006f33cea5c29'
+            return '16c225d2f7c7b2795210f54871a90129293169b6'
         case 'mainnet':
-            return '4e4d13a577072f0f5cb6fc1a17c96489de0f533e'
+            return '16c225d2f7c7b2795210f54871a90129293169b6'
     }
 }
