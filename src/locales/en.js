@@ -23,6 +23,7 @@ export default {
             send: 'Send',
             request_payment: 'Request Payment',
             create_token: 'Create Token',
+            dapp_myoffspring: 'MyOffspring',
             create_contract: 'Create Contract',
             send_to_contract: 'Send To Contract',
             call_contract: 'Call Contract',
