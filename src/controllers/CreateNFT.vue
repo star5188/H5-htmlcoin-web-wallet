@@ -10,7 +10,7 @@
           :before-upload="beforeAvatarUpload"
           :on-success="handleFileComplete"
           :show-file-list="false"
-          action="https://wallet.htmlcoin.com/picture/upload"
+          action="https://mobileapi.htmlcoin.com/api/v0/add"
         >
           <div class="nft-img__upload" :single="false" :attrs="attrs">
             <div v-if="!isUpload">
@@ -179,7 +179,7 @@ export default {
 
     handleFileComplete(res, file) {
       this.showUploadUrl = URL.createObjectURL(file.raw)
-      this.uploadUrl = res.url
+      this.uploadUrl = ''.concat('https://mobileapi.htmlcoin.com/ipfs/', res.Hash)
       this.isUpload = true
       this.isUploading = false
     }
