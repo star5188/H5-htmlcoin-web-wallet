@@ -10,7 +10,7 @@ switch (config.getNetwork()) {
     domain = 'https://mobileapi.htmlcoin.com'
     break
 }
-const apiPrefix = domain + '/api'
+const apiPrefix = domain + '/htmlcoin-api'
 
 const _get = async url => {
     return (await axios.get(apiPrefix + url)).data
