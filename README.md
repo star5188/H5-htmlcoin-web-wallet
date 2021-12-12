@@ -1,10 +1,11 @@
 # Htmlcoin Web Wallet
 
-'nvm use 10'
+'nvm i 12'
 'git clone'
 'npm install'
 'npm run build'
-'cp -r dist/* /var/www/html'
+' sudo cp -r dist/* /var/www/html/wallet/'
+
 
 Features:
 - Generate New Wallet
