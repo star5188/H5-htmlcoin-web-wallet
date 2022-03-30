@@ -389,7 +389,7 @@ export default {
     },
 
     initTokens() {
-      const tokenList = [{ text: 'HTML', value: 'HTMLCOIN' }]
+      const tokenList = [{ text: 'HTML', value: 'HTML' }]
       hrc20.getTokenList().forEach(token => {
         tokenList[tokenList.length] = {
           text: token.symbol,
