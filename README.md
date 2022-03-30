@@ -4,7 +4,7 @@
 'git clone'
 'npm install'
 'npm run build'
-' sudo cp -r dist/* /var/www/html/wallet/'
+'sudo mv dist/* /var/www/html/wallet/'
 
 
 Features:
