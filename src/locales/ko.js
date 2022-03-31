@@ -107,7 +107,7 @@ export default {
         info3_offline: '온라인 컴퓨터에서 이 단계를 완료하십시오.'
     },
     send: {
-        send_tokens: '토큰 보내기',
+        send_tokens: '암호화폐를 보내다',
         enter_address: '주소를 다시 입력하십시오 (다시 확인하십시오).',
         going_to_send: '보내겠습니다 ',
         to_address: 'to address ',
