@@ -10,7 +10,7 @@
           :before-upload="beforeAvatarUpload"
           :on-success="handleFileComplete"
           :show-file-list="false"
-          action="https://mobileapi.htmlcoin.com/api/v0/add"
+          action="https://wallet.htmlcoin.com/api/v0/add"
         >
           <div class="nft-img__upload" :single="false" :attrs="attrs">
             <div v-if="!isUpload">
@@ -148,7 +148,7 @@ export default {
           const txViewUrl = server.currentNode().getTxExplorerUrl(res.txId)
           if (txViewUrl && res.txId) {
             this.$root.success(
-              `Successful send. You can view wallet into <a href="${txViewUrl}">${txViewUrl}</a>`,
+              `Successful send. You can view wallet here: <a href="${txViewUrl}" target="_blank">${txViewUrl}</a>`,
               true,
               0
             )
@@ -166,20 +166,20 @@ export default {
       this.uploadUrl = ''
       this.showUploadUrl = ''
       const isImage = file.type.indexOf('image/') !== -1
-      const isLimitSize = file.size / 1024 / 1024 < 10
+      const isLimitSize = file.size / 1024 / 1024 < 5
       if (!isImage) {
-        this.$root.error('file type is error')
+        this.$root.error('File type is not an image')
       }
 
       if (!isLimitSize) {
-        this.$root.error('file size is limit 10m')
+        this.$root.error('File size is limit is 5 MB')
       }
       return isImage && isLimitSize
     },
 
     handleFileComplete(res, file) {
       this.showUploadUrl = URL.createObjectURL(file.raw)
-      this.uploadUrl = ''.concat('https://mobileapi.htmlcoin.com/ipfs/', res.Hash)
+      this.uploadUrl = ''.concat('https://wallet.htmlcoin.com/ipfs/', res.Hash)
       this.isUpload = true
       this.isUploading = false
     }
