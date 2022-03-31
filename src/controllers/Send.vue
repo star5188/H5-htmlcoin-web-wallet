@@ -232,7 +232,7 @@ export default {
       addTokenDecimals: 8,
       gasPrice: '40',
       gasLimit: '250000',
-      fee: '0.004',
+      fee: '0.01',
       confirmAddressDialog: false,
       repeatAddress: '',
       confirmSendDialog: false,
@@ -357,7 +357,7 @@ export default {
         this.addTokenLoading = false
         if (
           (e.response && e.response.status === 404) ||
-          e.message === 'this contract is not a hrc20 token'
+          e.message === 'this token address is not a hrc20 token'
         ) {
           this.$root.error('token_contract_address_is_not_exists')
           this.$root.log.error(
