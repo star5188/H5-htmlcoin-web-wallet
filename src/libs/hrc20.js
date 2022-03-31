@@ -39,7 +39,7 @@ export default {
         try {
             return await server.currentNode().getTokenInfo(contractAddress)
         } catch (e) {
-            throw 'this contract is not a hrc20 token'
+            throw 'Trouble parsing token json info'
         }
     },
 
