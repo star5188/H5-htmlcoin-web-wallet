@@ -18,6 +18,10 @@ const _get = async url => {
     return (await axios.get(apiPrefix + url)).data
 }
 
+const _getOld = async url => {
+    return (await axios.get('https://explorer.htmlcoin.com/api' + url)).data
+}
+
 const _post = async(url, data) => {
     return (await axios.post(apiPrefix + url, data)).data
 }
@@ -28,7 +32,7 @@ export default {
     },
 
     async getTokenInfo(contractAddress) {
-        return await _get(`/contract/${contractAddress}`)
+        return (await _getOld(`/erc20/${contractAddress}`))
     },
 
     async getTxList(address, size = 10) {
