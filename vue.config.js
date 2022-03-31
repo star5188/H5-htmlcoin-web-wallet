@@ -8,6 +8,18 @@ module.exports = {
             args[0].terserOptions.mangle.keep_fnames = true
             return args
         })
+     },
+     configureWebpack: () => {
+         if (process.env.NODE_ENV === 'production') {
+             return {
+             }
+         } else {
+             return {
+                 devServer: {
+                     disableHostCheck: true
+                 }
+             }
+         }
         config.module
             .rule('js')
             .use('babel-loader')
