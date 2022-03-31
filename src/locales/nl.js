@@ -26,13 +26,13 @@ export default {
       create_contract: 'Contract aanmaken',
       send_to_contract: 'Verstuur naar contract',
       call_contract: 'Oproepen van contract',
-      settings: 'Instellingen',
+      settings: 'Instellingen'
     },
     info: {
       address: 'Adres',
       balance: 'Overzicht',
       unconfirmed_balance: 'Onbevestigde balans',
-      priv_key: 'Privésleutel',
+      priv_key: 'Privésleutel'
     },
     notify: {
       success: 'Succes',
@@ -51,11 +51,11 @@ export default {
       the_key_file_is_not_a_valid_format: 'Het sleutelbestand heeft geen geldig bestandsformaat',
       restore_key_file_fail: 'Herstel van sleutelbestand mislukt. Misschien is het wachtwoord niet juist',
       connect_ledger_fail: 'Verbinding met Ledger mislukt. Verbind uw Ledger opnieuw en probeer het nogmaals',
-      token_contract_address_is_not_exists: 'Het contractadres van de token bestaat niet, controleer het alstublieft en probeer het nogmaals',
+      token_contract_address_is_not_exists: 'Het contractadres van de token bestaat niet, controleer het alstublieft en probeer het nogmaals'
     },
     mode: {
       normal: 'Normaal',
-      offline: 'Niet verbonden',
+      offline: 'Niet verbonden'
     }
   },
   mnemonic: {
@@ -64,16 +64,16 @@ export default {
   },
   password: {
     enter: 'Voer alstublieft uw wachtwoord in',
-    password: 'Wachtwoord',
+    password: 'Wachtwoord'
   },
   file_reader: {
-    upload: 'Upload',
+    upload: 'Upload'
   },
   file_creator: {
-    download: 'Klik alstublieft op deze knop om uw backup te downloaden. Als de download niet start klikt u dan op uw rechtermuisknop en kies vervolgens “Koppeling opslaan als…”',
+    download: 'Klik alstublieft op deze knop om uw backup te downloaden. Als de download niet start klikt u dan op uw rechtermuisknop en kies vervolgens “Koppeling opslaan als…”'
   },
   ledger: {
-    comm_fail: 'Verbinding met Ledger mislukt. Verbind uw Ledger opnieuw en probeer het nogmaals.',
+    comm_fail: 'Verbinding met Ledger mislukt. Verbind uw Ledger opnieuw en probeer het nogmaals.'
   },
   derive_path: {
     title: 'Kies alstublieft een aangepaste gegevensmap',
@@ -84,7 +84,7 @@ export default {
     path_name: 'Naam gegegevensmap',
     path: 'Gegevensmap',
     prev_10: 'Vorige 10 adressen',
-    next_10: 'Volgende 10 adressen',
+    next_10: 'Volgende 10 adressen'
   },
   safe_send: {
     title: 'Veilig Versturen',
@@ -98,17 +98,17 @@ export default {
     info2_online: 'Voer deze stap alstublieft uit op de computer zonder internetverbinding, kopieer het bestand van deze computer en ga hierna naar stap 3',
     info2_offline: 'Upload alstublieft de kopie van het bestand van de computer met internetverbinding, bevestig de handtekening en bewaar het bestand, kopieer het vervolgens terug naar de computer met internetverbinding',
     info3_online: 'Upload alstublieft het bestand van de computer zonder internetverbinding om ‘Veilig Versturen’ af te ronden',
-    info3_offline: 'Rond deze stap alstublieft af op de computer met internetverbinding',
+    info3_offline: 'Rond deze stap alstublieft af op de computer met internetverbinding'
   },
   send: {
     send_tokens: 'Verstuur',
     enter_address: 'Voer het adres opnieuw in alstublieft (dubbele controle)',
     going_to_send: 'U gaat versturen ',
     to_address: 'naar adres ',
-    token_address: 'naar adres',
+    token_address: 'naar adres'
   },
   request_payment: {
-    title: 'Betalingsverzoek',
+    title: 'Betalingsverzoek'
   },
   create_token: {
     title: 'Token Aanmaken',
@@ -116,52 +116,52 @@ export default {
     symbol: 'Symbool Token',
     decimal: 'Decimalen (het is verstandig om 8 decimalen te gebruiken met HTMLCOIN)',
     total_supply: 'Totale Aanbod (EENHEID: 1 Token)',
-    confirm: 'Bevestigt u om deze Token aan te maken?',
+    confirm: 'Bevestigt u om deze Token aan te maken?'
   },
   create_contract: {
     title: 'Maak contract aan',
     confirm: 'Bevestigt u om het contract openbaar te maken?',
-    compiler: 'Verzamelaar',
+    compiler: 'Verzamelaar'
   },
   send_to_contract: {
     title: 'Verstuur naar contract',
-    confirm: 'Bevestigt u dit?',
+    confirm: 'Bevestigt u dit?'
   },
   call_contract: {
     title: 'Contract oproepen',
-    result: 'Resultaat',
+    result: 'Resultaat'
   },
   create: {
-    title: 'Nieuwe portemonnee aanmaken',
+    title: 'Nieuwe portemonnee aanmaken'
   },
   create_mnemonic: {
     title: 'Generate New Wallet',
     remember: 'Onthoud de volgende ezelsbruggetjes alstublieft',
-    remembered: 'Ik heb het allemaal onthouden. Laten wij het controleren',
+    remembered: 'Ik heb het allemaal onthouden. Laten wij het controleren'
   },
   restore: {
     title: 'Herstel portemonnee',
-    mnemonic_warning: 'De ingevoerde woorden zijn niet bip39 ezelsbruggetjes. Als uw adres is aangemaakt door deze portemonnee, sluit dan dit dialoog en controleer de gebruikte woorden (geen spatie, geen hoofdletter, enz.). U kan doorgaan wanneer u uw woorden heeft gecontroleerd.',
+    mnemonic_warning: 'De ingevoerde woorden zijn niet bip39 ezelsbruggetjes. Als uw adres is aangemaakt door deze portemonnee, sluit dan dit dialoog en controleer de gebruikte woorden (geen spatie, geen hoofdletter, enz.). U kan doorgaan wanneer u uw woorden heeft gecontroleerd.'
   },
   restore_wif: {
-    title: 'Herstel portemonneee via WIF',
+    title: 'Herstel portemonneee via WIF'
     priv_key: 'WIF',
   },
   restore_mobile: {
-    title: 'Herstel via mobiele portemonnee',
+    title: 'Herstel via mobiele portemonnee'
   },
   restore_key_file: {
     title: 'Herstel via sleutelbestand',
-    password_title: 'Voer alstublieft uw wachtwoord in om de portemonnee te ontcijferen',
+    password_title: 'Voer alstublieft uw wachtwoord in om de portemonnee te ontcijferen'
   },
   restore_ledger: {
     title: 'Herstel via Ledger',
     usage: 'Controleer alstublieft dat uw firmware en app de nieuwste versies zijn. Verbind uw Ledger, open de Html APP en klik vervolgens op de knop ‘VERBIND’ om verbinding te leggen.',
     download: 'Installeren kan via de link https://www.ledgerwallet.com/apps/manager',
-    connect: 'VERBIND',
+    connect: 'VERBIND'
   },
   view: {
-    title: 'Toon algemeen overzicht van uw portemonnee',
+    title: 'Toon algemeen overzicht van uw portemonnee'
   },
   view_tx: {
     title: 'Blader door transactiegeschiedenis',
@@ -170,18 +170,18 @@ export default {
     mined_at: 'Gemined om ',
     total_in: 'Totaal in ',
     fee: 'Transactiekosten ',
-    total_out: 'Totaal uit ',
+    total_out: 'Totaal uit '
   },
   dump_as_key_file: {
     title: 'Dumo als sleutelbestand',
     password_title: 'Voer alstublieft een wachtwoord in om uw portemonnee te versleutelen',
-    warning: 'Onthoud dit wachtwoord alstublieft, als u dit wachtwoord verliest kan de backup niet worden ontcijferd',
+    warning: 'Onthoud dit wachtwoord alstublieft, als u dit wachtwoord verliest kan de backup niet worden ontcijferd'
   },
   config: {
     title: 'Instellingen',
     lan: 'Taal',
     network: 'Netwerk',
-    mode: 'Modus',
+    mode: 'Modus'
   },
   warning: {
     title: 'Waarschuwing',
@@ -191,7 +191,7 @@ export default {
       'Als gebruiker bent u volledig verantwoordelijk voor de veiligheid van uw fondsen',
       'Gebruik altublieft de meest recente versie van zowel een anti-virus programma als besturingssysteem',
       'Bewaar alstublieft uw privésleutels en deel deze met niemand.',
-      'Zorg ervoor dat bij gebruik van ‘Herstel via Ezelsbruggetje’ de gebruikte woorden en het wachtwoord exact overeen komen, anders zal een nieuw adres door de portemonnee worden aangemaakt. Zorg dus voor gebruik van het juiste adres bij het herstellen via het ezelsbruggetje.',
+      'Zorg ervoor dat bij gebruik van ‘Herstel via Ezelsbruggetje’ de gebruikte woorden en het wachtwoord exact overeen komen, anders zal een nieuw adres door de portemonnee worden aangemaakt. Zorg dus voor gebruik van het juiste adres bij het herstellen via het ezelsbruggetje.'
     ]
   }
 }

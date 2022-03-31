@@ -13,7 +13,7 @@ const locales = [
 ]
 const messages = {
   en,
-  br,  
+  br,
   nl,
   zh,
   ko
@@ -21,5 +21,5 @@ const messages = {
 
 export default {
   locales,
-  messages,
+  messages
 }

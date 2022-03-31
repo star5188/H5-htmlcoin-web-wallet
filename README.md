@@ -1,12 +1,10 @@
 # Htmlcoin Web Wallet
 
-'nvm use 10'
-'git clone'
-'npm install'
-'npm run build'
-'cp -r dist/* /var/www/html'
+$ nvm i 12
+$ git clone
+$ npm install && npm audit fix && npm run build --fix && sudo rm -rf /var/www/html/wallet/css/ && sudo rm -rf /var/www/html/wallet/js/ && sudo rm -rf /var/www/html/wallet/index.html && sudo rm -rf /var/www/html/wallet/fonts/ && sudo mv dist/* /var/www/html/wallet/
 
-Features: 
+Features:
 - Generate New Wallet
     - Enter new password and download wallet
 - Create From Mnemonic
@@ -19,13 +17,13 @@ Features:
     - Input words
 - Restore From Key File
     - Upload wallet
-- Restore From Ledger (HTMLCOIN ledger in testing)
+- Restore From Ledger (Althash ledger in testing)
     - Install App and connect Ledger
 - View Wallet Info
     - Address
     - Balance
     - Unconfirmed Balance
-    - Private Key 
+    - Private Key
 - Safe Send
     - Generate Base Info (At online computer)
     - Generate Tx (At offline computer)
@@ -36,4 +34,5 @@ Features:
 - Create Contract
 - Send To Contract
 - Call Contract
+- NFT Platform
 - Settings

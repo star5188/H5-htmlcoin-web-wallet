@@ -9,8 +9,8 @@
 比如图中我要使用第七个地址
 ![](https://s.qtum.site/uploads/c202699d892bdba858964fbf52747da3.jpg)
 
-## 3. 选择地址后，就能看到当前地址的qtum金额以及QRC20的token数量
+## 3. 选择地址后，就能看到当前地址的qtum金额以及HRC20的token数量
 ![](https://s.qtum.site/uploads/ab46aa81ddaaeeba66557cf509234ec2.jpg)
 
-## 4. 也可以到转账页面进行qtum转账或者QRC20转账
+## 4. 也可以到转账页面进行qtum转账或者HRC20转账
 ![](https://s.qtum.site/uploads/3d404ffbccee057043798abce2416d67.jpg)
