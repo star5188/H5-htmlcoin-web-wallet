@@ -33,7 +33,7 @@
     <v-toolbar :class="headerClass" app fixed clipped-left>
       <span class="title">
         <i class="htmlcoin-icon htmlcoin-icon-logo" style="font-size:34px;"></i>
-        <span class="text" style="font-size:34px;">Htmlcoin Web Wallet</span>
+        <span class="text" style="font-size:34px;"> Htmlcoin Web Wallet</span>
       </span>
     </v-toolbar>
     <main>
@@ -79,6 +79,10 @@
                 :view="isCurrent['transactions']"
                 v-if="isCurrent['transactions']"
               ></view-tx>
+              <view-nft
+                :view="isCurrent['view_nft']"
+                v-if="isCurrent['view_nft']"
+              ></view-nft>
               <safe-send
                 @send="setWallet"
                 v-if="isCurrent['safe_send']"
@@ -91,6 +95,8 @@
                 v-if="isCurrent['dump_as_key_file']"
               ></dump-key-file>
               <create-token v-if="isCurrent['create_token']"></create-token>
+              <dapp-myoffspring v-if="isCurrent['dapp_myoffspring']"></dapp-myoffspring>
+              <dapp-altproof v-if="isCurrent['dapp_altproof']"></dapp-altproof>
               <create-contract
                 v-if="isCurrent['create_contract']"
               ></create-contract>
@@ -129,23 +135,24 @@ import RestoreKeyFile from '@/controllers/RestoreKeyFile'
 import RestoreLedger from '@/controllers/RestoreLedger'
 import ViewWallet from '@/controllers/View'
 import ViewTx from '@/controllers/ViewTx'
+import ViewNft from '@/controllers/ViewNft'
 import SafeSend from '@/controllers/SafeSend'
 import Send from '@/controllers/Send'
 import RequestPayment from '@/controllers/RequestPayment'
 import DumpKeyFile from '@/controllers/DumpKeyFile'
 import CreateToken from '@/controllers/CreateToken'
+import DappAltproof from '@/controllers/Dapp-AltProof'
+import DappMyoffspring from '@/controllers/Dapp-MyOffspring'
 import CreateContract from '@/controllers/CreateContract'
-import SendToContract from '@/controllers/SendToContract.vue'
-import CallContract from '@/controllers/CallContract.vue'
-import CreateNft from '@/controllers/CreateNFT.vue'
+import SendToContract from '@/controllers/SendToContract'
+import CallContract from '@/controllers/CallContract'
+import CreateNft from '@/controllers/CreateNFT'
 import Config from '@/controllers/Config'
 import Delegation from '@/controllers/Delegation'
-
 import config from '@/libs/config'
 import webWallet from '@/libs/web-wallet'
 import i18n from '@/libs/i18n'
 import track from '@/libs/track'
-
 import htmlcoinInfo from '@/libs/nodes/htmlcoinInfo'
 
 const log = createLog({
@@ -172,15 +179,19 @@ export default {
         { divider: true, name: 'wallet' },
         { icon: 'account_balance_wallet', name: 'view' },
         { icon: 'list', name: 'transactions' },
+        { icon: 'fingerprint', name: 'view_nft' },
         { icon: 'repeat', name: 'send' },
         { icon: 'undo', name: 'request_payment' },
         { icon: 'cloud_download', name: 'dump_as_key_file' },
-        { divider: true, name: 'contract' },
+        { divider: true, name: 'dapp' },
+        { icon: 'fingerprint', name: 'create_NFT' },
         { icon: 'copyright', name: 'create_token' },
+        { icon: 'verified_user', name: 'dapp_altproof' },
+        { icon: 'child_care', name: 'dapp_myoffspring' },
+        { divider: true, name: 'contract' },
         { icon: 'create', name: 'create_contract' },
         { icon: 'publish', name: 'send_to_contract' },
         { icon: 'play_circle_filled', name: 'call_contract' },
-        { icon: 'fingerprint', name: 'create_NFT' },
         { divider: true, name: 'disc' },
         { icon: 'settings', name: 'settings' }
       ],
@@ -197,6 +208,7 @@ export default {
         restore_from_ledger: this.network !== 'mainnet',
         view: this.mode === 'offline' || !this.wallet,
         transactions: this.mode === 'offline' || !this.wallet,
+        view_nft: this.mode === 'offline' || !this.wallet,
         wallet: this.mode === 'offline' && !this.wallet,
         safe_send: this.mode === 'offline' && !this.wallet,
         send: this.mode === 'offline' || !this.wallet,
@@ -207,6 +219,8 @@ export default {
         create_contract: this.mode === 'offline' || !this.wallet,
         send_to_contract: this.mode === 'offline' || !this.wallet,
         call_contract: this.mode === 'offline' || !this.wallet,
+        dapp_myoffspring: this.mode === 'offline' || !this.wallet,
+        dapp_altproof: this.mode === 'offline' || !this.wallet,
         create_NFT: this.mode === 'offline' || !this.wallet,
         stake: this.mode === 'offline' || !this.wallet,
         delegation:
@@ -235,11 +249,14 @@ export default {
     RestoreLedger,
     ViewWallet,
     ViewTx,
+    ViewNft,
     SafeSend,
     Send,
     RequestPayment,
     DumpKeyFile,
     CreateToken,
+    DappMyoffspring,
+    DappAltproof,
     CreateContract,
     SendToContract,
     CallContract,
