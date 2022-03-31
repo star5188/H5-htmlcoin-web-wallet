@@ -106,18 +106,18 @@
           <v-flex xs4>
             <v-chip label outline class="white--text">
               {{ $t("view_tx.total_in")
-              }}{{ Wallet.changeUnitFromSatTo1(tx.inputValue) }}
+              }}{{ tx.inputValue }}
             </v-chip>
           </v-flex>
           <v-flex xs4>
             <v-chip label outline class="white--text">
-              {{ $t("view_tx.fee") }}{{ Wallet.changeUnitFromSatTo1(tx.fees) }}
+              {{ $t("view_tx.fee") }}{{ tx.fees }}
             </v-chip>
           </v-flex>
           <v-flex xs4>
             <v-chip label outline class="white--text">
               {{ $t("view_tx.total_out")
-              }}{{ Wallet.changeUnitFromSatTo1(tx.outputValue) }}
+              }}{{ tx.outputValue }}
             </v-chip>
           </v-flex>
         </v-layout>
