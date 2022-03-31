@@ -2,6 +2,14 @@
   <v-card>
     <v-card-title>
       <span class="headline">{{ $t("view.title") }}</span>
+      <v-tooltip bottom>
+        <v-btn icon slot="activator" @click="refreshWallet">
+          <v-icon color="blue accent-4">
+            refresh
+          </v-icon>
+        </v-btn>
+        <span>Refresh</span>
+      </v-tooltip>
     </v-card-title>
     <v-card-text>
       <v-layout v-for="(item, i) in infoLabel" :key="i">
@@ -62,31 +70,43 @@
       </v-layout>
       <v-layout v-if="wallet.info.hrc20.length > 0">
         <v-flex xs3>
-          <v-subheader> HRC20 </v-subheader>
+          <v-subheader> HRC20 Tokens </v-subheader>
         </v-flex>
         <v-flex xs7>
           <v-card
-            flat
-            tile
-            :color="'grey darken-' + ((i % 2) + 1)"
-            style="border-bottom: 2px solid #000; padding: 15px 10px"
+ flat tile :color="'blue-grey darken-3'" style="border-bottom: 2px solid #000; padding: 5px 10px">
+            <v-layout row wrap>
+              <v-flex xs3>
+                  <b>Name</b>
+              </v-flex>
+              <v-flex xs3>
+                  <b>Balance</b>
+              </v-flex>
+              <v-flex xs6>
+                  <b>Contract Address</b>
+              </v-flex>
+            </v-layout>
+          </v-card>
+          <v-card flat tile dark :color="'light-blue darken-'+(i%2+3)" 
+            style="border-bottom: 2px solid #000; padding: 15px 10px;"
             v-for="(token, i) in wallet.info.hrc20"
             :key="i"
           >
             <v-layout>
-              <v-flex xs5>{{ token.name }}</v-flex>
-              <v-flex xs7>{{ token.balance }} {{ token.symbol }}</v-flex>
+              <v-flex xs3>{{ token.name }}</v-flex>
+              <v-flex xs3>{{ token.balance }} {{ token.symbol }}</v-flex>
+              <v-flex xs6>
+                <span class="caption">{{ token.address }}</span>
+              </v-flex>
             </v-layout>
           </v-card>
         </v-flex>
       </v-layout>
-      <nft-list></nft-list>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-import NFTList from '@/components/NFT/NFTList.vue'
 import webWallet from '@/libs/web-wallet'
 import track from '@/libs/track'
 
@@ -101,9 +121,6 @@ export default {
       wallet: webWallet.getWallet(),
       showPriv: false
     }
-  },
-  components: {
-    'nft-list': NFTList
   },
   props: ['view'],
   watch: {
