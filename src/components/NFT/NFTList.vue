@@ -11,8 +11,7 @@
             class="nft-item"
             v-for="nft in NFTList"
             :key="nft.NFTId.toString()"
-            @click="handleOpenNFTItem(true, nft.url, $event)"
-          >
+            @click="handleOpenNFTItem(true, nft.url, $event)">
             <div class="nft-item__count">
               <div class="nft-item__count-box">{{ nft.count }}</div>
             </div>
@@ -26,7 +25,7 @@
               {{ nft.name }}
             </div>
             <div class="nft-item__desc">
-              <v-clamp autoresize :max-lines="3">{{ nft.desc }}</v-clamp>
+              <v-clamp autoresize>{{ nft.desc }}</v-clamp>
             </div>
             <v-btn
               small
@@ -200,22 +199,21 @@ export default {
   }
   &__img {
     height: 180px;
-    object-fit: fill;
+    object-fit: scale-down;
   }
   &__name {
     width: 100%;
     height: 30px;
     font-size: 18px;
     font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    display:contents;
   }
   &__desc {
     width: 100%;
     font-size: 14px;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow: contents;
   }
 }
 </style>
