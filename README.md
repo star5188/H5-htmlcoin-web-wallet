@@ -1,7 +1,9 @@
 # Htmlcoin Web Wallet
 
 $ nvm i 12
+
 $ git clone
+
 $ npm install && npm audit fix && npm run build --fix && sudo rm -rf /var/www/html/wallet/css/ && sudo rm -rf /var/www/html/wallet/js/ && sudo rm -rf /var/www/html/wallet/index.html && sudo rm -rf /var/www/html/wallet/fonts/ && sudo mv dist/* /var/www/html/wallet/
 
 Features:
