@@ -144,8 +144,8 @@ export default {
     mnemonic_warning: 'De ingevoerde woorden zijn niet bip39 ezelsbruggetjes. Als uw adres is aangemaakt door deze portemonnee, sluit dan dit dialoog en controleer de gebruikte woorden (geen spatie, geen hoofdletter, enz.). U kan doorgaan wanneer u uw woorden heeft gecontroleerd.'
   },
   restore_wif: {
-    title: 'Herstel portemonneee via WIF'
-    priv_key: 'WIF',
+    title: 'Herstel portemonneee via WIF',
+    priv_key: 'WIF'
   },
   restore_mobile: {
     title: 'Herstel via mobiele portemonnee'
