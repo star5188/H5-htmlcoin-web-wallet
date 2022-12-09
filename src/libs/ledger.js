@@ -39,7 +39,7 @@ export default class Ledger {
   }
 
   static get defaultPath() {
-    return 'm/44\'/88\'/0\'/0'
+    return 'm/44\'/172\'/0\'/0'
   }
 
   static async connect() {
